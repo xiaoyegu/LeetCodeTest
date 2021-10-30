@@ -4,6 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class LeetCode {
+    public static void main(String[] args) {
+        System.out.println((0+(3-0)/2));
+    }
     //3. 无重复字符的最长子串
     public int lengthOfLongestSubstring(String s) {
         // 哈希集合，记录每个字符是否出现过
