@@ -81,6 +81,24 @@ public class LeetCode {
 
         return ans;
     }
+    //283. 移动零
+    public void moveZeroes(int[] nums) {
+        int m = nums.length;
+        int left = 0;
+        int right = 0;
+        while(right < m){
+            if(nums[right]!=0){
+                swap(nums,left,right);
+                left++;
+            }
+            right++;
+        }
+    }
 
+    public void swap(int[] nums, int left, int right) {
+        int temp = nums[left];
+        nums[left] = nums[right];
+        nums[right] = temp;
+    }
 
 }
