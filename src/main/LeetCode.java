@@ -46,4 +46,78 @@ public class LeetCode {
         }
         return -1;
     }
+    //28. 实现 strStr()
+
+    //977. 有序数组的平方（双指针）
+    public int[] sortedSquares(int[] nums) {
+        int n = nums.length;
+        int negative = -1;
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] < 0) {
+                negative = i;
+            } else {
+                break;
+            }
+        }
+
+        int[] ans = new int[n];
+        int index = 0, i = negative, j = negative + 1;
+        while (i >= 0 || j < n) {
+            if (i < 0) {
+                ans[index] = nums[j] * nums[j];
+                ++j;
+            } else if (j == n) {
+                ans[index] = nums[i] * nums[i];
+                --i;
+            } else if (nums[i] * nums[i] < nums[j] * nums[j]) {
+                ans[index] = nums[i] * nums[i];
+                --i;
+            } else {
+                ans[index] = nums[j] * nums[j];
+                ++j;
+            }
+            ++index;
+        }
+
+        return ans;
+    }
+    //283. 移动零
+    public void moveZeroes(int[] nums) {
+        int m = nums.length;
+        int left = 0;
+        int right = 0;
+        while(right < m){
+            if(nums[right]!=0){
+                swap(nums,left,right);
+                left++;
+            }
+            right++;
+        }
+    }
+
+    public void swap(int[] nums, int left, int right) {
+        int temp = nums[left];
+        nums[left] = nums[right];
+        nums[right] = temp;
+    }
+
+    //189. 旋转数组
+    //dsafd
+    public void rotate(int[] nums, int k) {
+        k %= nums.length;
+        reverse(nums, 0, nums.length - 1);
+        reverse(nums, 0, k - 1);
+        reverse(nums, k, nums.length - 1);
+    }
+
+    public void reverse(int[] nums, int start, int end) {
+        while (start < end) {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start += 1;
+            end -= 1;
+        }
+    }
+
 }
