@@ -102,6 +102,7 @@ public class LeetCode {
     }
 
     //189. 旋转数组
+    //dsafd
     public void rotate(int[] nums, int k) {
         k %= nums.length;
         reverse(nums, 0, nums.length - 1);
