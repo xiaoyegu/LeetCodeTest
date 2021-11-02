@@ -119,5 +119,22 @@ public class LeetCode {
             end -= 1;
         }
     }
+    //557. 反转字符串中的单词 III(java未解决）
+    public String reverseWords(String s) {
+        int n = s.length();
+        int left = 0,right = 0;
+        while(true){
+            if((" ").equals(s.charAt(right)) || right == n-1){
+                for(int l = left, r = right;l < r;l++,r--){
+                    char param = s.charAt(l);
+                    //s.charAt(l) = s.charAt(r);
+                    //s.charAt(r) = param;
+                }
+                left = right+1;
+            }
+            right++;
+        }
+
+    }
 
 }
