@@ -134,7 +134,7 @@ public class LeetCode {
                 }
                 left = right+1;
             }
-            right++;//
+            right++;
         }
 
     }
