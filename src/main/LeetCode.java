@@ -4,8 +4,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class LeetCode {
+    public class ListNode {
+      int val;
+      ListNode next;
+      ListNode() {}
+      ListNode(int val) { this.val = val; }
+      ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+  }
     public static void main(String[] args) {
-        System.out.println((0+(3-0)/2));
+
     }
     //3. 无重复字符的最长子串
     public int lengthOfLongestSubstring(String s) {
@@ -204,5 +211,26 @@ public class LeetCode {
             fast = fast.next.next;
         }
         return slow;
+    }
+    //19. 删除链表的倒数第 N 个结点
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode slow = head, fast = head, paramHead = head;
+        int n = 0;
+        for(int i = 0;i<n;i++){
+            fast=fast.next;
+            n++;
+        }
+        if(n>1){
+            while(fast.next != null){
+                slow = slow.next;
+                fast = fast.next;
+            }
+            slow.next = slow.next.next;
+        }else{
+            head.next=null;
+        }
+
+
+        return paramHead;
     }
 }
