@@ -163,64 +163,64 @@ public class LeetCode {
         return new int[]{-1, -1};
     }
     //876. 链表的中间结点
-    public class ListNode{
-        int val;
-        ListNode next;
-        ListNode(){}
-        ListNode(int val){
-            this.val = val;
-        }
-        ListNode(int val,ListNode next){
-            this.val = val;
-            this.next = next;
-        }
-        public ListNode(int[] nums){
-            if (nums == null || nums.length == 0){
-                throw new IllegalArgumentException("arr can not be empty!");
-            }
-            this.val = nums[0];
-            ListNode curr = this;
-            for(int i = 1;i < nums.length;i++){
-                curr.next = new ListNode(nums[i]);
-                curr = curr.next;
-            }
-        }
-
-        @Override
-        public String toString() {
-            StringBuilder s = new StringBuilder();
-            ListNode cur = this;
-            while (cur != null){
-                s.append(cur.val);
-                s.append("->");
-                cur = cur.next;
-            }
-            s.append("NULL");
-            return s.toString();
-        }
-    }
-    public ListNode middleNode1(ListNode head) {
-        if (head == null) {
-            return null;
-        }
-        ListNode slow = head;
-        ListNode fast = head;
-
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        return slow;
-    }
+//    public class ListNode{
+//        int val;
+//        ListNode next;
+//        ListNode(){}
+//        ListNode(int val){
+//            this.val = val;
+//        }
+//        ListNode(int val,ListNode next){
+//            this.val = val;
+//            this.next = next;
+//        }
+//        public ListNode(int[] nums){
+//            if (nums == null || nums.length == 0){
+//                throw new IllegalArgumentException("arr can not be empty!");
+//            }
+//            this.val = nums[0];
+//            ListNode curr = this;
+//            for(int i = 1;i < nums.length;i++){
+//                curr.next = new ListNode(nums[i]);
+//                curr = curr.next;
+//            }
+//        }
+//
+//        @Override
+//        public String toString() {
+//            StringBuilder s = new StringBuilder();
+//            ListNode cur = this;
+//            while (cur != null){
+//                s.append(cur.val);
+//                s.append("->");
+//                cur = cur.next;
+//            }
+//            s.append("NULL");
+//            return s.toString();
+//        }
+//    }
+//    public ListNode middleNode1(ListNode head) {
+//        if (head == null) {
+//            return null;
+//        }
+//        ListNode slow = head;
+//        ListNode fast = head;
+//
+//        while (fast != null && fast.next != null) {
+//            slow = slow.next;
+//            fast = fast.next.next;
+//        }
+//        return slow;
+//    }
     //19. 删除链表的倒数第 N 个结点
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode slow = head, fast = head, paramHead = head;
-        int n = 0;
+        int isOne = 0;
         for(int i = 0;i<n;i++){
             fast=fast.next;
-            n++;
+            isOne++;
         }
-        if(n>1){
+        if(isOne>1){
             while(fast.next != null){
                 slow = slow.next;
                 fast = fast.next;
